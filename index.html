@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memento Photobooth</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e7ebed;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #666;
+    }
+    section.packages {
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      background: #f8f8f8;
+    }
+    .package {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      text-align: center;
+    }
+    .package h2 {
+      color: #3a5943;
+    }
+    .package p {
+      margin: 10px 0;
+    }
+    .price {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #2e7d32;
+    }
+    section.booking-form {
+      padding: 40px 20px;
+      background: #ffffff;
+      text-align: center;
+    }
+    section.booking-form h2 {
+      margin-bottom: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      background-color: #3a5943;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background-color: #2e7d32;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-top: 1px solid #ccc;
+    }
+    footer p, footer a {
+      color: #333;
+      font-size: 0.9em;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    function sendToWhatsApp(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const selectedPackage = document.getElementById('package').value;
+      const date = document.getElementById('date').value;
+      const message = document.getElementById('message').value;
+
+      const fullMessage = `Booking Request:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPackage: ${selectedPackage}\nDate: ${date}\nNotes: ${message}`;
+
+      const whatsappUrl = `https://wa.me/601111263348?text=${encodeURIComponent(fullMessage)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Memento Photobooth</h1>
+    <p>| Wedding | Dinner | Birthday Party | Graduation |</p>
+    <p>Capture your moment with us</p>
+  </header>
+
+  <section class="packages">
+    <div class="package">
+      <h2>Package One</h2>
+      <p>2 hours of coverage</p>
+      <p>Unlimited Print</p>
+      <p>Soft Copy</p>
+      <p>2R (2x6") Size</p>
+      <p>Attendants</p>
+      <p class="price">RM 640</p>
+    </div>
+    <div class="package">
+      <h2>Package Two</h2>
+      <p>3 hours of coverage</p>
+      <p>Unlimited Print</p>
+      <p>Soft Copy</p>
+      <p>2R (2x6") Size</p>
+      <p>Attendants</p>
+      <p class="price">RM 850</p>
+    </div>
+    <div class="package">
+      <h2>Package Three</h2>
+      <p>4 hours of coverage</p>
+      <p>Unlimited Print</p>
+      <p>Soft Copy</p>
+      <p>2R (2x6") Size</p>
+      <p>Attendants</p>
+      <p class="price">RM 1030</p>
+    </div>
+  </section>
+
+  <section class="booking-form">
+    <h2>Book a Package</h2>
+    <form onsubmit="sendToWhatsApp(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="package">Select Package</label>
+      <select id="package" name="package" required>
+        <option value="Package One">Package One</option>
+        <option value="Package Two">Package Two</option>
+        <option value="Package Three">Package Three</option>
+      </select>
+
+      <label for="date">Event Date</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="message">Additional Notes</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Contact us:</p>
+    <p>📞 011-11263348 / 017-6563974</p>
+    <p>📷 Instagram: <a href="https://www.instagram.com/mementophotoboothh">@mementophotoboothh</a></p>
+    <p>📘 Facebook: <a href="https://www.facebook.com/mementopb">facebook.com/mementopb</a></p>
+  </footer>
+</body>
+</html>
