@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <img src="banner.jpg" alt="Memento Photobooth Banner" class="banner">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +13,14 @@
       margin: 0;
       padding: 0;
     }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     header {
       background-color: #fff3e6;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
       text-align: center;
       border-bottom: 1px solid #ccc;
     }
@@ -133,6 +135,20 @@
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
+    footer {
+      background-color: #fff3e6;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+      color: #6e4f3a;
+    }
+    footer a {
+      color: #6e4f3a;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
   <script>
     function sendToWhatsApp(event) {
@@ -161,6 +177,7 @@
   </script>
 </head>
 <body>
+  <img src="banner.jpg" alt="Memento Photobooth Banner" class="banner">
   <header>
     <h1>Memento Photobooth</h1>
     <p>| Wedding | Dinner | Birthday Party | Graduation |</p>
@@ -235,14 +252,13 @@
       <img src="gallery4.jpg" alt="Gallery Photo 4" onclick="openLightbox(this.src)">
       <img src="gallery5.jpg" alt="Gallery Photo 5" onclick="openLightbox(this.src)">
       <img src="gallery6.jpg" alt="Gallery Photo 6" onclick="openLightbox(this.src)">
-      <img src="gallery7.jpg" alt="Gallery Photo 6" onclick="openLightbox(this.src)">
+      <img src="gallery7.jpg" alt="Gallery Photo 7" onclick="openLightbox(this.src)">
     </div>
   </section>
 
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img" src="" alt="Large preview">
   </div>
-
 
   <footer>
     <p>Contact us:</p>
