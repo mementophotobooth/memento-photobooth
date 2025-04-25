@@ -89,16 +89,46 @@
     form button:hover {
       background-color: #6e4f3a;
     }
-    footer {
+    .gallery {
+      padding: 40px 20px;
+      background: #fffaf4;
       text-align: center;
-      padding: 20px;
-      background-color: #fffaf4;
-      border-top: 1px solid #ccc;
     }
-    footer p, footer a {
-      color: #5c4033;
-      font-size: 0.9em;
-      text-decoration: none;
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .gallery-grid img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
   </style>
   <script>
@@ -110,11 +140,20 @@
       const selectedPackage = document.getElementById('package').value;
       const date = document.getElementById('date').value;
       const message = document.getElementById('message').value;
-
       const fullMessage = `Booking Request:\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nPackage: ${selectedPackage}\nDate: ${date}\nNotes: ${message}`;
-
       const whatsappUrl = `https://wa.me/601111263348?text=${encodeURIComponent(fullMessage)}`;
       window.open(whatsappUrl, '_blank');
+    }
+
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightbox.style.display = 'flex';
+      lightboxImg.src = src;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
     }
   </script>
 </head>
@@ -183,6 +222,23 @@
       <button type="submit">Submit Booking</button>
     </form>
   </section>
+
+  <section class="gallery">
+    <h2>Our Work</h2>
+    <div class="gallery-grid">
+      <img src="gallery1.jpg" alt="Gallery Photo 1" onclick="openLightbox(this.src)">
+      <img src="gallery2.jpg" alt="Gallery Photo 2" onclick="openLightbox(this.src)">
+      <img src="gallery3.jpg" alt="Gallery Photo 3" onclick="openLightbox(this.src)">
+      <img src="gallery4.jpg" alt="Gallery Photo 4" onclick="openLightbox(this.src)">
+      <img src="gallery5.jpg" alt="Gallery Photo 5" onclick="openLightbox(this.src)">
+      <img src="gallery6.jpg" alt="Gallery Photo 6" onclick="openLightbox(this.src)">
+      <img src="gallery7.jpg" alt="Gallery Photo 6" onclick="openLightbox(this.src)">
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Large preview">
+  </div>
 
   <footer>
     <p>Contact us:</p>
