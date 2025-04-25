@@ -214,34 +214,45 @@
     </div>
   </section>
 
-  <section class="booking-form">
-    <h2>Book a Package</h2>
-    <form onsubmit="sendToWhatsApp(event)">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+<section class="booking-form">
+  <h2>Book a Package</h2>
+  <form onsubmit="sendToWhatsApp(event)">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" required>
+    <label for="state">State</label>
+    <select id="state" name="state" required>
+      <option value="" disabled selected>Select a state</option>
+      <option value="Kuala Lumpur">Kuala Lumpur</option>
+      <option value="Selangor">Selangor</option>
+      <option value="Putrajaya">Putrajaya</option>
+      <option value="Negeri Sembilan">Negeri Sembilan</option>
+      <option value="Melaka">Melaka</option>
+      <option value="Johor">Johor</option>
+    </select>
 
-      <label for="package">Select Package</label>
-      <select id="package" name="package" required>
-        <option value="Package One">Package One</option>
-        <option value="Package Two">Package Two</option>
-        <option value="Package Three">Package Three</option>
-      </select>
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" required>
 
-      <label for="date">Event Date</label>
-      <input type="date" id="date" name="date" required>
+    <label for="package">Select Package</label>
+    <select id="package" name="package" required>
+      <option value="Package One">Package One</option>
+      <option value="Package Two">Package Two</option>
+      <option value="Package Three">Package Three</option>
+    </select>
 
-      <label for="message">Additional Notes</label>
-      <textarea id="message" name="message" rows="4"></textarea>
+    <label for="date">Event Date</label>
+    <input type="date" id="date" name="date" required>
 
-      <button type="submit">Submit Booking</button>
-    </form>
-  </section>
+    <label for="message">Additional Notes</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+</section>
 
   <section class="gallery">
     <h2>Our Work</h2>
